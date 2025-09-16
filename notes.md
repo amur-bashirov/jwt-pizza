@@ -13,10 +13,10 @@ As part of `Deliverable ⓵ Development deployment: JWT Pizza`, start up the app
 | Verify pizza                                        |   Order.jsx                 |        GET api/orders/:id           |       SELECT * FROM orders WHERE id=?       |
 | View profile page                                   |    Profile.jsx              |        GET  api/users/me           |   SELECT * FROM users WHERE id=?           |
 | View franchise<br/>(as diner)                       |   FranchiseList.jsx          |         GET api/franchies          |  SELECT * from franchies            |
-| Logout                                              |           localSotrage + React state         |       none            |      none        |
-| View About page                                     |                    |                   |              |
-| View History page                                   |                    |                   |              |
-| Login as franchisee<br/>(f@jwt.com, pw: franchisee) |                    |                   |              |
+| Logout                                              |  localSotrage + React state |       none                           |      none        |
+| View About page                                     |    About.jsx                |         none                        |      none        |
+| View History page                                   |         History.jsx           |     GET  api/orders/user/:id              |     SELECT * FROM orders WHERE userdId=?         |
+| Login as franchisee<br/>(f@jwt.com, pw: franchisee) |         Login.jsx           |        POST about/auth/login           |     SELECT * FROM users WHERE emial=?         |
 | View franchise<br/>(as franchisee)                  |                    |                   |              |
 | Create a store                                      |                    |                   |              |
 | Close a store                                       |                    |                   |              |
