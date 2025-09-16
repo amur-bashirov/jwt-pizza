@@ -6,14 +6,14 @@ As part of `Deliverable ⓵ Development deployment: JWT Pizza`, start up the app
 
 | User activity                                       | Frontend component | Backend endpoints | Database SQL |
 | --------------------------------------------------- | ------------------ | ----------------- | ------------ |
-| View home page                                      | Home.jsx                   |   None                |    None          |
-| Register new user<br/>(t@jwt.com, pw: test)         |   Register.jsx                 |          POST   /api/auth/register         |      INSERT into users (email,password,role)        |
-| Login new user<br/>(t@jwt.com, pw: test)            |   Login.jsx                 |        POST   api/auth/login           |           SELECT * FROM user WHERE email=?   |
-| Order pizza                                         |                    |                   |              |
-| Verify pizza                                        |                    |                   |              |
-| View profile page                                   |                    |                   |              |
-| View franchise<br/>(as diner)                       |                    |                   |              |
-| Logout                                              |                    |                   |              |
+| View home page                                      | Home.jsx                   |   None                |    None       |
+| Register new user<br/>(t@jwt.com, pw: test)         |   Register.jsx             |          POST   /api/auth/register   |      INSERT into users (email,password,role)        |
+| Login new user<br/>(t@jwt.com, pw: test)            |   Login.jsx                 |        POST   api/auth/login      |           SELECT * FROM user WHERE email=?   |
+| Order pizza                                         |       Order.jsx/Menu.jsx    |           POST api/orders        |  INSERT INTO orders(userid,pizza,...)            |
+| Verify pizza                                        |   Order.jsx                 |        GET api/orders/:id           |       SELECT * FROM orders WHERE id=?       |
+| View profile page                                   |    Profile.jsx              |        GET  api/users/me           |   SELECT * FROM users WHERE id=?           |
+| View franchise<br/>(as diner)                       |   FranchiseList.jsx          |         GET api/franchies          |  SELECT * from franchies            |
+| Logout                                              |           localSotrage + React state         |       none            |      none        |
 | View About page                                     |                    |                   |              |
 | View History page                                   |                    |                   |              |
 | Login as franchisee<br/>(f@jwt.com, pw: franchisee) |                    |                   |              |
