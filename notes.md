@@ -17,10 +17,10 @@ As part of `Deliverable ⓵ Development deployment: JWT Pizza`, start up the app
 | View About page                                     |    About.jsx                |         none                        |      none        |
 | View History page                                   |         History.jsx           |     GET  api/orders/user/:id              |     SELECT * FROM orders WHERE userdId=?         |
 | Login as franchisee<br/>(f@jwt.com, pw: franchisee) |         Login.jsx           |        POST about/auth/login           |     SELECT * FROM users WHERE emial=?         |
-| View franchise<br/>(as franchisee)                  |         FranchiseDashboard.jsx           |        GET api/franchies/:id           |              |
-| Create a store                                      |      StoreForm.jsx              |      POST api/stores             |              |
-| Close a store                                       |        StoreList.jsx            |  DELETE api/store/:id                 |              |
-| Login as admin<br/>(a@jwt.com, pw: admin)           |     Login.jsx               |   POST   api/auth/login                |              |
-| View Admin page                                     |      Admin.jsx              |  GET api/admin                 |              |
-| Create a franchise for t@jwt.com                    |     Admin.jsx               |  POST api/franchies                  |              |
-| Close the franchise for t@jwt.com                   |       Admin.jsx             |    DELETE api/franchies/:id               |              |
+| View franchise<br/>(as franchisee)                  |         FranchiseDashboard.jsx           |        GET api/franchies/:id           |      SELECT * from franchies WHERE ownerId=?        |
+| Create a store                                      |      StoreForm.jsx              |      POST api/stores             |     INSERT INTO stores(franchiseId,...)         |
+| Close a store                                       |        StoreList.jsx            |  DELETE api/store/:id                 |   DELETE FROM strores WHERE id=?           |
+| Login as admin<br/>(a@jwt.com, pw: admin)           |     Login.jsx               |   POST   api/auth/login                |     SELECT * FROM users WHERE email=?         |
+| View Admin page                                     |      Admin.jsx              |  GET api/admin                 |     Multiple SELECTE * FROM ...         |
+| Create a franchise for t@jwt.com                    |     Admin.jsx               |  POST api/franchies                  |      INSERT INTO franchisea (ownerId,..)        |
+| Close the franchise for t@jwt.com                   |       Admin.jsx             |    DELETE api/franchies/:id               |  DELETE FROM franchises WHERE ownerId=?            |
