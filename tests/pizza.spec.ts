@@ -27,10 +27,28 @@ async function basicInit(page: Page) {
     password: 'admin',
     roles: [{ role: Role.Admin }],
   },
+  'franchise@jwt.com': {
+    id: '1',
+    name: 'Franchise',
+    email: 'franchise@jwt.com',
+    password: 'franchise',
+    roles: [{ role: Role.Franchisee }],
+  },
 };
 
   // Authorize login for the given user
   await page.route('*/**/api/auth', async (route) => {
+    const method = route.request().method();
+
+
+    if (method === 'DELETE' || method === 'POST') {
+    // Logout or invalid method — clear logged-in user
+    loggedInUser = undefined;
+    await route.fulfill({ status: 200, json: { message: 'Logged out' } });
+    return;
+  }
+
+
     const loginReq = route.request().postDataJSON();
     const user = validUsers[loginReq.email];
     if (!user || user.password !== loginReq.password) {
@@ -97,6 +115,16 @@ async function basicInit(page: Page) {
 
   // Order a pizza.
   await page.route('*/**/api/order', async (route) => {
+    const method = route.request().method();
+    if (method === 'GET') {
+    // For example, when profile page loads previous orders
+    const orders = [
+      { id: 23, title: 'Veggie', total: 0.0038 },
+      { id: 24, title: 'Pepperoni', total: 0.0042 },
+    ];
+    await route.fulfill({ json: { orders } });
+    return;
+  }
     const orderReq = route.request().postDataJSON();
     const orderRes = {
       order: { ...orderReq, id: 23 },
@@ -252,4 +280,63 @@ test('close store', async ({ page }) => {
   await page.goto('/admin-dashboard');
   
 
+});
+
+
+
+test('Login as franchise', async ({ page }) => {
+  await basicInit(page);
+
+  
+  await page.getByRole('link', { name: 'Login' }).click();
+  await page.getByRole('textbox', { name: 'Email address' }).fill('franchise@jwt.com');
+  await page.getByRole('textbox', { name: 'Password' }).fill('franchise');
+ await page.getByRole('button', { name: 'Login' }).click();
+
+
+
+ //await page.getByRole('button', { name: 'Franchise' }).click();
+  await page.click('text=Franchise');
+  
+ await page.goto('/franchise-dashboard');
+
+});
+
+
+test('logout and register', async ({ page }) => {
+  await basicInit(page);
+  await page.getByRole('link', { name: 'Login' }).click();
+  await page.getByRole('textbox', { name: 'Email address' }).fill('d@jwt.com');
+  await page.getByRole('textbox', { name: 'Password' }).fill('a');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.click('text=Logout');
+  await page.click('text=Register');
+  await page.getByRole('textbox', { name: 'Full name' }).fill('Amur');
+  await page.getByRole('textbox', { name: 'Email address' }).click();
+  await page.getByRole('textbox', { name: 'Email address' }).fill('blaccbaron@gmail.com');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('button').filter({ hasText: /^$/ }).click();
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('2637221');
+  await page.getByRole('button', { name: 'Register' }).click();
+});
+
+
+
+test('about', async ({ page }) => {
+  await basicInit(page);
+  await page.getByRole('link', { name: 'Login' }).click();
+  await page.getByRole('textbox', { name: 'Email address' }).fill('d@jwt.com');
+  await page.getByRole('textbox', { name: 'Password' }).fill('a');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.click('text=About');
+});
+
+test('profile', async ({ page }) => {
+  await basicInit(page);
+  await page.getByRole('link', { name: 'Login' }).click();
+  await page.getByRole('textbox', { name: 'Email address' }).fill('d@jwt.com');
+  await page.getByRole('textbox', { name: 'Password' }).fill('a');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.getByRole('link', { name: 'KC' }).click();
 });
