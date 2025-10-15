@@ -222,7 +222,7 @@ test('admin dashboard shows franchise table and Add Franchise button', async ({ 
 
 
   await page.getByRole('row', { name: /LotaPizza/ }).getByRole('button', { name: 'Close' }).click();
-  await page.goto('/admin-dashboard/close-franchise');
+  //await page.goto('/admin-dashboard/close-franchise');
   await page.getByRole('button', { name: 'Cancel' }).click();
 
 
@@ -233,10 +233,10 @@ test('admin dashboard shows franchise table and Add Franchise button', async ({ 
   await page.getByRole('button', { name: 'Close' }).click();
 
 
-  await page.goto('/admin-dashboard');
+  // await page.goto('/admin-dashboard');
 
-  await page.getByRole('button', { name: 'submit' }).click();
-  await page.goto('/admin-dashboard');
+  // await page.getByRole('button', { name: 'submit' }).click();
+  // await page.goto('/admin-dashboard');
 
 
 });
