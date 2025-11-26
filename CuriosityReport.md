@@ -37,6 +37,10 @@ When creating the repository:
 - Check **“Include all branches”**.
 - Click **Create repository from template**.
 
+  you can view [my repository](https://github.com/amur-bashirov/jwt-pizza-uptime)
+  here is screenshot of it:
+   ![Screenshot](public/Screenshot%20(112).png)
+
 ---
 
 ### 2. Enable Workflows
@@ -85,7 +89,9 @@ This token allows Upptime to commit updates, build the site, and manage issues a
 
 ### 5. Update Configuration (`.upptimerc.yml`)
 
-Configure the websites you want to monitor and customize your status page. Here is an example configuration:
+Configure the websites you want to monitor and customize your status page.
+![Screenshot](public/Screenshot%20(113).png)
+Here is an example configuration:
 <details>
 <summary>Show .upptimerc.yml</summary>
 ```yaml
@@ -122,11 +128,14 @@ status-website:
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
 </details>
+
 ---
 
 ## 6. Commit your graph workflow: 
 It is also improtant to notice that I had troubel for workflows keep failing to see my graph workfows. I learnt that apparantly sometimes you need to change something in the given file and than commit it in order for GitHUb to see it. It is a very wierd bug but sometimes it happens. can you polish it?
 ---
+All these steps can be then viewd on the my personal pages:
+![Screenshot](public/Screenshot%20(111).png)
 ### Reflections and Key Learnings
 
 Through this exercise, I learned not only how to connect Upptime to monitor my websites but also gained a deeper understanding of how GitHub templates work. By creating a repository from the Upptime template, I could immediately leverage pre-configured workflows, secrets, and a structured configuration file to set up uptime monitoring quickly.
