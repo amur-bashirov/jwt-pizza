@@ -86,6 +86,42 @@ This token allows Upptime to commit updates, build the site, and manage issues a
 ### 5. Update Configuration (`.upptimerc.yml`)
 
 Configure the websites you want to monitor and customize your status page. Here is an example configuration:
+<details>
+<summary>Show .upptimerc.yml</summary>
+```yaml
+# Change these first
+owner: amur-bashirov # Your GitHub organization or username, where this repository lives
+repo: jwt-pizza-uptime # The name of this repository
+
+sites:
+  - name: Pizza Website
+    url: https://pizza.eatandtravel.click
+  - name: Google
+    url: https://www.google.com
+  - name: Wikipedia
+    url: https://en.wikipedia.org
+  - name: Hacker News
+    url: https://news.ycombinator.com
+  - name: Test Broken Site
+    url: https://thissitedoesnotexist.koj.co
+  - name: IPv6 test
+    url: forwardemail.net
+    port: 80
+    check: "tcp-ping"
+    ipv6: true
+
+status-website:
+  cname: pizza.eatandtravel.click
+  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
+  name: Upptime
+  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
+  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  navbar:
+    - title: Status
+      href: /
+    - title: GitHub
+      href: https://github.com/$OWNER/$REPO
+</details>
 ---
 
 ## 6. Commit your graph workflow: 
