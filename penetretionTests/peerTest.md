@@ -1,5 +1,5 @@
 
-My own penetrationTest
+Penetration Test of my own website
 | Item           | Result                                                                         |
 | -------------- | ------------------------------------------------------------------------------ |
 | Date           | December 9, 2025                                                                  |
@@ -11,7 +11,7 @@ My own penetrationTest
 | Corrections    | add token verification to the method                                                          |
 
 
-Penetretion Test of Charles Butler
+Penetretion Test of Charles Butler's website
 | Item           | Result                                                                         |
 | -------------- | ------------------------------------------------------------------------------ |
 | Date           | December 9, 2025                                                                 |
@@ -21,4 +21,5 @@ Penetretion Test of Charles Butler
 | Description    | SQL injection deleted database. All application data destroyed.                |
 | Images         | ![Dead database](deadDatabase.png) <br/> Stores and menu no longer accessible. |
 | Corrections    | Sanitize user inputs.                                                          |
+
 
