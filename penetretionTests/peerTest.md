@@ -16,11 +16,12 @@ Penetretion Test of Charles Butler's website
 | -------------- | ------------------------------------------------------------------------------ |
 | Date           | December 9, 2025                                                                 |
 | Target         | pizza.jwtpizzacs329.click                                                     |
-| Classification | Injection                                                                      |
-| Severity       | 1                                                                              |
-| Description    | SQL injection deleted database. All application data destroyed.                |
-| Images         | ![successful guess](PasswordTesting.png) <br/> Stores and menu no longer accessible. |
-| Corrections    | Sanitize user inputs.                                                          |
+| Classification | OWASP A07 – Identification & Authentication Failures                                                                     |
+| Severity       | Severity: 2 – Medium                                                                             |
+| Description    |A credential brute-force attack was performed using Burp Suite Intruder. Multiple common passwords were attempted against the authentication mechanism. The payload "secretpassword" resulted in an HTTP 200 OK, indicating different server behavior from all other attempts (404).                 |
+| Images         | ![successful guess](PasswordTesting.png) <br/> Succcesful response for "secretepassword". |
+| Corrections    | force limit attmptes allowed                                                          |
+
 
 
 
