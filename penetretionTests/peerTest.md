@@ -7,7 +7,7 @@ Penetration Test of my own website
 | Classification | Injection                                                                      |
 | Severity       | 1                                                                              |
 | Description    | SQL injection deleted database. All application data destroyed.                |
-| Images         | ![Dead database](deadDatabase.png) <br/> Stores and menu no longer accessible. |
+| Images         | ![Burb successful call](Screenshot(133).png) <br/> Stores and menu no longer accessible. |
 | Corrections    | add token verification to the method                                                          |
 
 
@@ -21,5 +21,6 @@ Penetretion Test of Charles Butler's website
 | Description    | SQL injection deleted database. All application data destroyed.                |
 | Images         | ![Dead database](deadDatabase.png) <br/> Stores and menu no longer accessible. |
 | Corrections    | Sanitize user inputs.                                                          |
+
 
 
